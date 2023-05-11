@@ -1,17 +1,16 @@
 #include <stdio.h>
 
+void upper(char *str) {
+	while (*str != 0) {
+		if (*str >= 'a' && *str <= 'z') *str -= 32;
+		str++;
+	}
+}
+
 int main() {
-    char line[100];
-    int i;
-START:
-    printf("Enter a number: ");
-    if (fgets(line, sizeof(line), stdin)) {
-        if (1 == sscanf(line, "%d", &i)) {
-            printf("%d\n", i);
-        } else {
-            printf("Enter a valid number!\n");
-            goto START;
-        }
-    }
-    return 0;
+	char str[] = "Hello";
+	upper(str);
+	puts(str);
+
+	return 0;
 }
